@@ -1,0 +1,52 @@
+spring:
+  application:
+    name: spring-cloud-config-server
+  cloud:
+    config:
+      label: master
+      server:
+        git:
+          uri: https://github.com/topsale/spring-cloud-config
+          search-paths: respo
+          username:
+          password:
+  boot:
+    admin:
+      client:
+        url: http://localhost:8882
+  zipkin:
+    base-url: http://localhost:9411
+
+server:
+  port: 8888
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8888/eureka/
+#HTTP 请求地址和资源文件映射
+#http://ip:port/{application}/{profile}[/{label}]
+#http://ip:port/{application}-{profile}.yml
+#http://ip:port/{label}/{application}-{profile}.yml
+#http://ip:port/{application}-{profile}.properties
+#http://ip:port/{label}/{application}-{profile}.properties
+#------>客户端
+#spring:
+#  application:
+#    name: hello-spring-cloud-config-client
+#  cloud:
+#    config:
+#      uri: http://localhost:8888
+#      name: config-client
+#      label: master
+#      profile: dev
+#server:
+#  port: 8889
+#eureka:
+#  client:
+#    serviceUrl:
+#      defaultZone: http://localhost:8761/eureka/
+#<dependency>
+#    <groupId>org.springframework.cloud</groupId>
+#    <artifactId>spring-cloud-starter-config</artifactId>
+#</dependency>

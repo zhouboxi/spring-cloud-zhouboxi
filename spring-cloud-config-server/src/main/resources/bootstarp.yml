@@ -1,0 +1,5 @@
+server:
+  port: 8883
+
+  #bootstarp.yml优先级高于application.yml
+  #config-server 默认端口8888
